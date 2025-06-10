@@ -1,0 +1,1393 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>🏭 Adobe Stock 2025: Industrial Trends Prompt Generator</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #2C5530 0%, #1B4332 50%, #081C15 100%);
+            min-height: 100vh;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 25px;
+            box-shadow: 0 25px 50px rgba(0,0,0,0.2);
+            overflow: hidden;
+        }
+
+        .header {
+            background: linear-gradient(135deg, #2C5530 0%, #1B4332 50%, #081C15 100%);
+            color: white;
+            text-align: center;
+            padding: 40px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .header::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: linear-gradient(45deg, transparent, rgba(255,255,255,0.1), transparent);
+            transform: rotate(45deg);
+            animation: headerShine 4s infinite;
+        }
+
+        @keyframes headerShine {
+            0% { transform: translateX(-100%) translateY(-100%) rotate(45deg); }
+            50% { transform: translateX(100%) translateY(100%) rotate(45deg); }
+            100% { transform: translateX(-100%) translateY(-100%) rotate(45deg); }
+        }
+
+        .header-content {
+            position: relative;
+            z-index: 2;
+        }
+
+        .header h1 {
+            font-size: 2.6em;
+            margin-bottom: 15px;
+            text-shadow: 0 3px 6px rgba(0,0,0,0.3);
+        }
+
+        .header p {
+            font-size: 1.2em;
+            opacity: 0.95;
+            line-height: 1.5;
+        }
+
+        .content {
+            padding: 40px;
+        }
+
+        .trend-tabs {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 30px;
+            gap: 10px;
+            flex-wrap: wrap;
+        }
+
+        .tab-btn {
+            background: #f8f9fa;
+            border: 2px solid #e9ecef;
+            padding: 15px 25px;
+            border-radius: 25px;
+            cursor: pointer;
+            font-weight: 600;
+            transition: all 0.3s;
+            color: #495057;
+        }
+
+        .tab-btn.active {
+            background: linear-gradient(135deg, #2C5530 0%, #1B4332 100%);
+            color: white;
+            border-color: #2C5530;
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(44, 85, 48, 0.3);
+        }
+
+        .tab-btn:hover {
+            transform: translateY(-1px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+
+        .stats {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 20px;
+            margin: 30px 0;
+        }
+
+        .stat-card {
+            background: linear-gradient(135deg, #2C5530 0%, #1B4332 100%);
+            color: white;
+            padding: 25px;
+            border-radius: 20px;
+            text-align: center;
+            box-shadow: 0 10px 25px rgba(44, 85, 48, 0.3);
+        }
+
+        .stat-number {
+            font-size: 2.2em;
+            font-weight: 700;
+            display: block;
+            margin-bottom: 8px;
+        }
+
+        .stat-label {
+            font-size: 0.95em;
+            opacity: 0.9;
+        }
+
+        .preset-section {
+            background: #f8f9fa;
+            padding: 25px;
+            border-radius: 20px;
+            margin: 30px 0;
+            border-left: 5px solid #2C5530;
+        }
+
+        .preset-buttons {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 15px;
+            margin: 20px 0;
+        }
+
+        .preset-btn {
+            background: linear-gradient(135deg, #e8f5e8 0%, #d4e7d4 100%);
+            border: 2px solid #52b788;
+            padding: 15px 20px;
+            border-radius: 15px;
+            cursor: pointer;
+            font-size: 14px;
+            font-weight: 600;
+            transition: all 0.3s;
+            text-align: center;
+            color: #2C5530;
+        }
+
+        .preset-btn:hover {
+            background: linear-gradient(135deg, #52b788 0%, #2C5530 100%);
+            color: white;
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(82, 183, 136, 0.4);
+        }
+
+        .controls {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 25px;
+            margin: 30px 0;
+        }
+
+        .control-group {
+            background: #f8f9fa;
+            padding: 25px;
+            border-radius: 20px;
+            border-left: 5px solid #2C5530;
+            transition: all 0.3s;
+        }
+
+        .control-group:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+        }
+
+        .control-group h3 {
+            color: #1B4332;
+            margin-bottom: 15px;
+            font-size: 1.2em;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        select {
+            width: 100%;
+            padding: 15px;
+            border: 2px solid #e9ecef;
+            border-radius: 12px;
+            font-size: 15px;
+            background: white;
+            transition: all 0.3s;
+            color: #495057;
+        }
+
+        select:focus {
+            outline: none;
+            border-color: #2C5530;
+            box-shadow: 0 0 0 3px rgba(44, 85, 48, 0.1);
+        }
+
+        .trend-info {
+            background: linear-gradient(135deg, #e8f5e8 0%, #f1f8e9 100%);
+            border: 2px solid #52b788;
+            border-radius: 15px;
+            padding: 20px;
+            margin: 20px 0;
+        }
+
+        .trend-info h4 {
+            color: #1B4332;
+            margin-bottom: 15px;
+            font-size: 1.1em;
+        }
+
+        .trend-tips {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 15px;
+            font-size: 14px;
+            color: #424242;
+        }
+
+        .tip-item {
+            background: white;
+            padding: 15px;
+            border-radius: 10px;
+            border-left: 4px solid #52b788;
+        }
+
+        .buttons {
+            text-align: center;
+            margin: 40px 0;
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            background: linear-gradient(135deg, #2C5530 0%, #1B4332 100%);
+            color: white;
+            border: none;
+            padding: 18px 35px;
+            border-radius: 30px;
+            font-size: 16px;
+            font-weight: 700;
+            cursor: pointer;
+            transition: all 0.3s;
+            box-shadow: 0 8px 20px rgba(44, 85, 48, 0.3);
+        }
+
+        .btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 15px 35px rgba(44, 85, 48, 0.4);
+        }
+
+        .btn-midjourney {
+            background: linear-gradient(135deg, #7289da 0%, #5865f2 100%);
+            box-shadow: 0 8px 20px rgba(114, 137, 218, 0.3);
+        }
+
+        .btn-midjourney:hover {
+            box-shadow: 0 15px 35px rgba(114, 137, 218, 0.4);
+        }
+
+        .btn-secondary {
+            background: linear-gradient(135deg, #6c757d 0%, #495057 100%);
+            box-shadow: 0 8px 20px rgba(108, 117, 125, 0.3);
+        }
+
+        .midjourney-section {
+            background: linear-gradient(135deg, #7289da 0%, #5865f2 100%);
+            color: white;
+            padding: 30px;
+            border-radius: 20px;
+            margin: 30px 0;
+            box-shadow: 0 15px 35px rgba(114, 137, 218, 0.3);
+        }
+
+        .midjourney-section h2 {
+            text-align: center;
+            margin-bottom: 25px;
+            font-size: 1.8em;
+        }
+
+        .midjourney-controls {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+        }
+
+        .mj-control-group {
+            background: rgba(255,255,255,0.15);
+            padding: 20px;
+            border-radius: 15px;
+            border-left: 4px solid #fff;
+        }
+
+        .mj-control-group h3 {
+            color: white;
+            margin-bottom: 15px;
+            font-size: 1.1em;
+        }
+
+        .mj-control-group select {
+            background: rgba(255,255,255,0.95);
+            color: #333;
+        }
+
+        .result {
+            background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+            border: 3px solid #2C5530;
+            border-radius: 20px;
+            padding: 30px;
+            margin-top: 30px;
+            box-shadow: 0 15px 35px rgba(44, 85, 48, 0.2);
+        }
+
+        .result h3 {
+            color: #1B4332;
+            margin-bottom: 20px;
+            font-size: 1.4em;
+            text-align: center;
+        }
+
+        .prompt-text {
+            background: white;
+            padding: 25px;
+            border-radius: 15px;
+            border-left: 5px solid #2C5530;
+            line-height: 1.7;
+            font-size: 15px;
+            word-wrap: break-word;
+            box-shadow: inset 0 2px 5px rgba(0,0,0,0.05);
+        }
+
+        .copy-btn {
+            background: linear-gradient(135deg, #17a2b8 0%, #138496 100%);
+            color: white;
+            border: none;
+            padding: 12px 25px;
+            border-radius: 25px;
+            cursor: pointer;
+            margin-top: 20px;
+            font-weight: 600;
+            transition: all 0.3s;
+            display: block;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .copy-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(23, 162, 184, 0.4);
+        }
+
+        .support-section {
+            background: linear-gradient(135deg, #2C5530 0%, #1B4332 100%);
+            margin: 40px 0;
+            padding: 35px;
+            border-radius: 25px;
+            text-align: center;
+            box-shadow: 0 15px 40px rgba(44, 85, 48, 0.4);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .support-section::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: linear-gradient(45deg, transparent, rgba(255,255,255,0.1), transparent);
+            transform: rotate(45deg);
+            animation: shine 3s infinite;
+        }
+
+        @keyframes shine {
+            0% { transform: translateX(-100%) translateY(-100%) rotate(45deg); }
+            50% { transform: translateX(100%) translateY(100%) rotate(45deg); }
+            100% { transform: translateX(-100%) translateY(-100%) rotate(45deg); }
+        }
+
+        .support-content {
+            position: relative;
+            z-index: 2;
+        }
+
+        .support-title {
+            color: white;
+            font-size: 2em;
+            font-weight: 700;
+            margin-bottom: 20px;
+            text-shadow: 0 2px 4px rgba(0,0,0,0.3);
+        }
+
+        .support-text {
+            color: white;
+            font-size: 1.15em;
+            margin-bottom: 25px;
+            opacity: 0.95;
+            line-height: 1.6;
+        }
+
+        .features-highlight {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 15px;
+            margin: 25px 0;
+            font-size: 14px;
+            color: white;
+            opacity: 0.9;
+        }
+
+        .feature-item {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            background: rgba(255,255,255,0.1);
+            padding: 15px;
+            border-radius: 12px;
+        }
+
+        .donate-btn {
+            background: linear-gradient(135deg, #52b788 0%, #2C5530 100%);
+            color: white;
+            border: none;
+            padding: 18px 45px;
+            border-radius: 50px;
+            font-size: 18px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 12px;
+            box-shadow: 0 10px 30px rgba(82, 183, 136, 0.4);
+        }
+
+        .donate-btn:hover {
+            transform: translateY(-3px) scale(1.05);
+            box-shadow: 0 20px 40px rgba(82, 183, 136, 0.6);
+        }
+
+        .heart-icon {
+            animation: heartbeat 2s infinite;
+        }
+
+        @keyframes heartbeat {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.2); }
+        }
+
+        .footer {
+            background: #f8f9fa;
+            text-align: center;
+            padding: 30px;
+            color: #6c757d;
+            font-size: 14px;
+            line-height: 1.6;
+        }
+
+        .hidden {
+            display: none;
+        }
+
+        @media (max-width: 768px) {
+            .header h1 {
+                font-size: 2.2em;
+            }
+            
+            .content {
+                padding: 25px;
+            }
+
+            .controls {
+                grid-template-columns: 1fr;
+            }
+
+            .buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .btn {
+                width: 100%;
+                max-width: 300px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <div class="header-content">
+                <h1>🏭 Industrial Stock Photo Generator</h1>
+                <p>Adobe Stock 2025 Trends untuk Smart Factory, AI Robotics & Sustainable Manufacturing - 100% bebas makhluk hidup</p>
+            </div>
+        </div>
+
+        <div class="content">
+            <div class="stats">
+                <div class="stat-card">
+                    <span class="stat-number">27M+</span>
+                    <span class="stat-label">Industrial Images di Adobe Stock</span>
+                </div>
+                <div class="stat-card">
+                    <span class="stat-number">15.1%</span>
+                    <span class="stat-label">CAGR Robotics Market</span>
+                </div>
+                <div class="stat-card">
+                    <span class="stat-number">7%</span>
+                    <span class="stat-label">Stock Photo Growth 2025</span>
+                </div>
+                <div class="stat-card">
+                    <span class="stat-number">$12.6B</span>
+                    <span class="stat-label">Market Value 2032</span>
+                </div>
+            </div>
+
+            <div class="trend-tabs">
+                <button class="tab-btn active" onclick="switchTab('smart-factory')">🤖 Smart Factory</button>
+                <button class="tab-btn" onclick="switchTab('green-manufacturing')">🌱 Green Manufacturing</button>
+                <button class="tab-btn" onclick="switchTab('ai-robotics')">⚙️ AI & Robotics</button>
+                <button class="tab-btn" onclick="switchTab('industrial-infrastructure')">🏗️ Infrastructure</button>
+            </div>
+
+            <!-- Smart Factory Tab -->
+            <div id="smart-factory-tab" class="tab-content">
+                <div class="trend-info">
+                    <h4>🤖 2025 Smart Factory Trends:</h4>
+                    <div class="trend-tips">
+                        <div class="tip-item"><strong>🔄 Industry 4.0:</strong> IoT connected manufacturing systems</div>
+                        <div class="tip-item"><strong>🤖 Robot Arms:</strong> Precision automated assembly lines</div>
+                        <div class="tip-item"><strong>📊 Digital Twins:</strong> Virtual factory representations</div>
+                        <div class="tip-item"><strong>⚡ Real-time Control:</strong> Smart monitoring dashboards</div>
+                    </div>
+                </div>
+
+                <div class="preset-section">
+                    <h3 style="color: #1B4332; margin-bottom: 20px;">🚀 Smart Factory Presets (2025 Trends)</h3>
+                    <div class="preset-buttons">
+                        <button class="preset-btn" onclick="setSmartFactoryPreset('robot-assembly')">🤖 Robot Assembly Line</button>
+                        <button class="preset-btn" onclick="setSmartFactoryPreset('iot-monitoring')">📊 IoT Monitoring System</button>
+                        <button class="preset-btn" onclick="setSmartFactoryPreset('digital-twin')">🔄 Digital Twin Factory</button>
+                        <button class="preset-btn" onclick="setSmartFactoryPreset('automated-warehouse')">📦 Automated Warehouse</button>
+                        <button class="preset-btn" onclick="setSmartFactoryPreset('quality-control')">🔍 AI Quality Control</button>
+                        <button class="preset-btn" onclick="setSmartFactoryPreset('predictive-maintenance')">⚡ Predictive Maintenance</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Green Manufacturing Tab -->
+            <div id="green-manufacturing-tab" class="tab-content hidden">
+                <div class="trend-info">
+                    <h4>🌱 2025 Green Manufacturing Insights:</h4>
+                    <div class="trend-tips">
+                        <div class="tip-item"><strong>🌞 Solar Production:</strong> Clean energy manufacturing</div>
+                        <div class="tip-item"><strong>♻️ Circular Economy:</strong> Sustainable production cycles</div>
+                        <div class="tip-item"><strong>🌿 Eco-Friendly Materials:</strong> Green technology integration</div>
+                        <div class="tip-item"><strong>💚 Carbon Neutral:</strong> Zero emission factories</div>
+                    </div>
+                </div>
+
+                <div class="preset-section">
+                    <h3 style="color: #1B4332; margin-bottom: 20px;">🚀 Green Manufacturing Presets (2025 Trends)</h3>
+                    <div class="preset-buttons">
+                        <button class="preset-btn" onclick="setGreenPreset('solar-factory')">🌞 Solar Panel Factory</button>
+                        <button class="preset-btn" onclick="setGreenPreset('wind-turbine')">💨 Wind Turbine Production</button>
+                        <button class="preset-btn" onclick="setGreenPreset('ev-battery')">🔋 EV Battery Assembly</button>
+                        <button class="preset-btn" onclick="setGreenPreset('recycling-plant')">♻️ Recycling Facility</button>
+                        <button class="preset-btn" onclick="setGreenPreset('green-hydrogen')">💚 Green Hydrogen Plant</button>
+                        <button class="preset-btn" onclick="setGreenPreset('biomaterials')">🌿 Biomaterials Production</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- AI & Robotics Tab -->
+            <div id="ai-robotics-tab" class="tab-content hidden">
+                <div class="trend-info">
+                    <h4>⚙️ 2025 AI & Robotics Trends:</h4>
+                    <div class="trend-tips">
+                        <div class="tip-item"><strong>🤝 Collaborative Robots:</strong> Human-robot workplace integration</div>
+                        <div class="tip-item"><strong>🧠 Machine Learning:</strong> AI-powered optimization</div>
+                        <div class="tip-item"><strong>👁️ Computer Vision:</strong> Visual inspection systems</div>
+                        <div class="tip-item"><strong>🔄 Autonomous Systems:</strong> Self-managing production</div>
+                    </div>
+                </div>
+
+                <div class="preset-section">
+                    <h3 style="color: #1B4332; margin-bottom: 20px;">🚀 AI & Robotics Presets (2025 Trends)</h3>
+                    <div class="preset-buttons">
+                        <button class="preset-btn" onclick="setAIRoboticsPreset('collaborative-robots')">🤝 Collaborative Robots</button>
+                        <button class="preset-btn" onclick="setAIRoboticsPreset('ai-vision-system')">👁️ AI Vision System</button>
+                        <button class="preset-btn" onclick="setAIRoboticsPreset('autonomous-mobile')">🚗 Autonomous Mobile Robots</button>
+                        <button class="preset-btn" onclick="setAIRoboticsPreset('machine-learning')">🧠 ML Production Control</button>
+                        <button class="preset-btn" onclick="setAIRoboticsPreset('robotic-welding')">⚡ Robotic Welding</button>
+                        <button class="preset-btn" onclick="setAIRoboticsPreset('precision-assembly')">🔧 Precision Assembly</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Industrial Infrastructure Tab -->
+            <div id="industrial-infrastructure-tab" class="tab-content hidden">
+                <div class="trend-info">
+                    <h4>🏗️ 2025 Industrial Infrastructure Insights:</h4>
+                    <div class="trend-tips">
+                        <div class="tip-item"><strong>🏭 Modern Facilities:</strong> Next-gen manufacturing plants</div>
+                        <div class="tip-item"><strong>🔧 Advanced Machinery:</strong> High-tech equipment systems</div>
+                        <div class="tip-item"><strong>📡 5G Connectivity:</strong> Ultra-fast industrial networks</div>
+                        <div class="tip-item"><strong>🛡️ Cybersecurity:</strong> Industrial security systems</div>
+                    </div>
+                </div>
+
+                <div class="preset-section">
+                    <h3 style="color: #1B4332; margin-bottom: 20px;">🚀 Infrastructure Presets (2025 Trends)</h3>
+                    <div class="preset-buttons">
+                        <button class="preset-btn" onclick="setInfrastructurePreset('modern-factory')">🏭 Modern Factory Floor</button>
+                        <button class="preset-btn" onclick="setInfrastructurePreset('cnc-machining')">🔧 CNC Machining Center</button>
+                        <button class="preset-btn" onclick="setInfrastructurePreset('conveyor-systems')">📦 Conveyor Systems</button>
+                        <button class="preset-btn" onclick="setInfrastructurePreset('control-room')">🖥️ Industrial Control Room</button>
+                        <button class="preset-btn" onclick="setInfrastructurePreset('pneumatic-systems')">💨 Pneumatic Systems</button>
+                        <button class="preset-btn" onclick="setInfrastructurePreset('electrical-panels')">⚡ Electrical Control Panels</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="controls" id="smart-factory-controls">
+                <div class="control-group">
+                    <h3>🤖 Automation Type</h3>
+                    <select id="automationType">
+                        <option value="robotic assembly line with precision arms">Robotic Assembly Line</option>
+                        <option value="automated conveyor belt system">Automated Conveyor System</option>
+                        <option value="smart manufacturing cell">Smart Manufacturing Cell</option>
+                        <option value="flexible production line">Flexible Production Line</option>
+                        <option value="automated guided vehicle system">Automated Guided Vehicles</option>
+                        <option value="pick and place robot system">Pick and Place Robots</option>
+                        <option value="collaborative workstation">Collaborative Workstation</option>
+                        <option value="autonomous mobile robot">Autonomous Mobile Robot</option>
+                    </select>
+                </div>
+
+                <div class="control-group">
+                    <h3>🎨 2025 Industrial Aesthetics</h3>
+                    <select id="industrialAesthetics">
+                        <option value="Future Dust palette dark blue metallic chrome">Future Dust - Dark Blue Metallic</option>
+                        <option value="clean white minimalist factory">Clean White Minimalist</option>
+                        <option value="industrial grey steel finish">Industrial Grey Steel</option>
+                        <option value="high tech blue LED lighting">High-tech Blue LED</option>
+                        <option value="modern green sustainable">Modern Green Sustainable</option>
+                        <option value="cyberpunk industrial neon">Cyberpunk Industrial Neon</option>
+                        <option value="sleek black modern equipment">Sleek Black Modern</option>
+                        <option value="holographic tech interface">Holographic Tech Interface</option>
+                    </select>
+                </div>
+
+                <div class="control-group">
+                    <h3>📐 Factory Layout</h3>
+                    <select id="factoryLayout">
+                        <option value="aerial top down factory view">Aerial Top-Down View</option>
+                        <option value="wide angle production floor">Wide Angle Production Floor</option>
+                        <option value="close up machinery detail">Close-Up Machinery Detail</option>
+                        <option value="diagonal perspective assembly">Diagonal Perspective Assembly</option>
+                        <option value="linear production sequence">Linear Production Sequence</option>
+                        <option value="circular workflow design">Circular Workflow Design</option>
+                        <option value="layered manufacturing levels">Layered Manufacturing Levels</option>
+                        <option value="modular production units">Modular Production Units</option>
+                    </select>
+                </div>
+
+                <div class="control-group">
+                    <h3>⚡ Technology Elements</h3>
+                    <select id="techElements">
+                        <option value="glowing status indicators">Glowing Status Indicators</option>
+                        <option value="digital control screens">Digital Control Screens</option>
+                        <option value="sensor arrays monitoring">Sensor Arrays Monitoring</option>
+                        <option value="data visualization displays">Data Visualization Displays</option>
+                        <option value="holographic interfaces">Holographic Interfaces</option>
+                        <option value="LED strip lighting">LED Strip Lighting</option>
+                        <option value="laser cutting systems">Laser Cutting Systems</option>
+                        <option value="pneumatic actuators">Pneumatic Actuators</option>
+                    </select>
+                </div>
+
+                <div class="control-group">
+                    <h3>💫 Visual Effects</h3>
+                    <select id="visualEffects">
+                        <option value="subtle motion blur activity">Subtle Motion Blur</option>
+                        <option value="sparks welding process">Sparks from Welding</option>
+                        <option value="steam vapor atmosphere">Steam Vapor Atmosphere</option>
+                        <option value="light rays industrial lighting">Light Rays Industrial</option>
+                        <option value="particle effects dust">Particle Effects Dust</option>
+                        <option value="reflection metallic surfaces">Metallic Surface Reflections</option>
+                        <option value="depth of field focus">Depth of Field Focus</option>
+                        <option value="dramatic industrial shadows">Dramatic Industrial Shadows</option>
+                    </select>
+                </div>
+
+                <div class="control-group">
+                    <h3>🎯 Commercial Use</h3>
+                    <select id="commercialUse">
+                        <option value="corporate annual report">Corporate Annual Report</option>
+                        <option value="industrial marketing brochure">Industrial Marketing</option>
+                        <option value="technology presentation">Technology Presentation</option>
+                        <option value="manufacturing website header">Website Header</option>
+                        <option value="trade show display">Trade Show Display</option>
+                        <option value="investor relations material">Investor Relations</option>
+                        <option value="case study documentation">Case Study Documentation</option>
+                        <option value="social media industrial">Social Media Industrial</option>
+                    </select>
+                </div>
+            </div>
+
+            <!-- Midjourney Section -->
+            <div class="midjourney-section">
+                <h2>🤖 Discord Midjourney V7 Settings</h2>
+                <div class="midjourney-controls">
+                    <div class="mj-control-group">
+                        <h3>📐 Aspect Ratio</h3>
+                        <select id="aspectRatio">
+                            <option value="16:9">16:9 (Landscape Industrial)</option>
+                            <option value="4:3">4:3 (Standard Factory)</option>
+                            <option value="1:1">1:1 (Square Social Media)</option>
+                            <option value="3:4">3:4 (Portrait Equipment)</option>
+                            <option value="21:9">21:9 (Ultra Wide Facility)</option>
+                        </select>
+                    </div>
+
+                    <div class="mj-control-group">
+                        <h3>🎨 Version</h3>
+                        <select id="mjVersion">
+                            <option value="7">Version 7 (Latest)</option>
+                            <option value="6.1">Version 6.1</option>
+                            <option value="6">Version 6</option>
+                        </select>
+                    </div>
+
+                    <div class="mj-control-group">
+                        <h3>🎭 Style Mode</h3>
+                        <select id="styleMode">
+                            <option value="raw">Raw (Industrial Precision)</option>
+                            <option value="scenic">Scenic (Enhanced Factory)</option>
+                            <option value="">Default (Balanced)</option>
+                        </select>
+                    </div>
+
+                    <div class="mj-control-group">
+                        <h3>⚡ Quality</h3>
+                        <select id="quality">
+                            <option value="2">Quality 2 (Maximum Detail)</option>
+                            <option value="1">Quality 1 (Standard)</option>
+                            <option value="0.5">Quality 0.5 (Faster)</option>
+                        </select>
+                    </div>
+
+                    <div class="mj-control-group">
+                        <h3>🎯 Stylize</h3>
+                        <select id="stylize">
+                            <option value="100">100 (Technical Realism)</option>
+                            <option value="250">250 (Moderate Style)</option>
+                            <option value="500">500 (Balanced)</option>
+                            <option value="750">750 (Artistic Industrial)</option>
+                        </select>
+                    </div>
+
+                    <div class="mj-control-group">
+                        <h3>🌸 Chaos</h3>
+                        <select id="chaos">
+                            <option value="0">0 (Precise Industrial)</option>
+                            <option value="25">25 (Slight Variation)</option>
+                            <option value="50">50 (Moderate)</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+
+            <div class="buttons">
+                <button class="btn" onclick="generateStandardPrompt()">🎨 Generate Standard Prompt</button>
+                <button class="btn btn-midjourney" onclick="generateMidjourneyPrompt()">🤖 Generate Midjourney V7</button>
+                <button class="btn btn-secondary" onclick="randomizeCurrentTab()">🎲 Random Current Category</button>
+                <button class="btn btn-secondary" onclick="resetAll()">🔄 Reset All</button>
+            </div>
+
+            <!-- Support Section -->
+            <div class="support-section">
+                <div class="support-content">
+                    <h3 class="support-title">🏭 Support Industrial Trends Research</h3>
+                    <p class="support-text">
+                        Generator ini dikembangkan berdasarkan riset mendalam Adobe Stock 2025 untuk industri modern. 
+                        Dukungan Anda membantu pengembangan tools untuk visual content creators di bidang industri!
+                    </p>
+                    
+                    <div class="features-highlight">
+                        <div class="feature-item">
+                            <span>🤖</span>
+                            <span>Smart Factory 4.0</span>
+                        </div>
+                        <div class="feature-item">
+                            <span>🌱</span>
+                            <span>Green Manufacturing</span>
+                        </div>
+                        <div class="feature-item">
+                            <span>⚙️</span>
+                            <span>AI & Robotics</span>
+                        </div>
+                        <div class="feature-item">
+                            <span>🏗️</span>
+                            <span>Modern Infrastructure</span>
+                        </div>
+                    </div>
+
+                    <a href="https://trakteer.id/anton-prafanto-nszpm/tip?quantity=1" 
+                       target="_blank" 
+                       class="donate-btn"
+                       onclick="trackDonation()">
+                        <span class="heart-icon">💖</span>
+                        <span>Support Industrial Research</span>
+                        <span>🏭</span>
+                    </a>
+                </div>
+            </div>
+
+            <div class="result" id="result" style="display: none;">
+                <h3>🏭 Your Industrial Prompt:</h3>
+                <div class="prompt-text" id="promptText"></div>
+                <button class="copy-btn" onclick="copyPrompt()">📋 Copy Prompt</button>
+            </div>
+
+            <div class="result" id="mjResult" style="display: none; background: linear-gradient(135deg, #7289da 10%, #5865f2 90%); border: 3px solid #7289da;">
+                <h3 style="color: white;">🤖 Discord Midjourney V7 Command:</h3>
+                <div class="prompt-text" id="mjPromptText" style="background: rgba(255,255,255,0.95); color: #333;"></div>
+                <button class="copy-btn" onclick="copyMjPrompt()" style="background: #fff; color: #7289da;">📋 Copy to Discord</button>
+                
+                <div style="margin-top: 25px; padding: 20px; background: rgba(255,255,255,0.1); border-radius: 15px;">
+                    <h4 style="color: white; margin-bottom: 15px;">🏭 2025 Industrial Trends Pro Tips:</h4>
+                    <ul style="color: white; opacity: 0.9; font-size: 14px; line-height: 1.7;">
+                        <li>Smart Factory: Gunakan V7 + Raw style untuk detail presisi industri</li>
+                        <li>Green Manufacturing: Fokus pada sustainable dan clean energy</li>
+                        <li>AI Robotics: Tampilkan kolaborasi teknologi tanpa manusia</li>
+                        <li>Infrastructure: Emphasize modern equipment dan connectivity</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="footer">
+            <p>🏭 Berdasarkan Riset Adobe Stock 2025 Industrial Trends • 27M+ Industrial Images • Smart Factory & Green Manufacturing</p>
+            <p style="margin-top: 10px;">💡 Support Midjourney V7 • Optimized untuk industri modern • 100% bebas makhluk hidup • Pure industrial aesthetics</p>
+        </div>
+    </div>
+
+    <script>
+        let currentTab = 'smart-factory';
+        let lastGenerationMode = 'midjourney';
+
+        // Tab switching functionality
+        function switchTab(tab) {
+            document.querySelectorAll('.tab-content').forEach(content => {
+                content.classList.add('hidden');
+            });
+            document.querySelectorAll('.controls').forEach(controls => {
+                controls.classList.add('hidden');
+            });
+            
+            document.getElementById(tab + '-tab').classList.remove('hidden');
+            
+            // Show appropriate controls
+            if (tab === 'smart-factory') {
+                document.getElementById('smart-factory-controls').classList.remove('hidden');
+            } else {
+                createControlsForTab(tab);
+            }
+            
+            document.querySelectorAll('.tab-btn').forEach(btn => {
+                btn.classList.remove('active');
+            });
+            event.target.classList.add('active');
+            
+            currentTab = tab;
+            
+            document.getElementById('result').style.display = 'none';
+            document.getElementById('mjResult').style.display = 'none';
+        }
+
+        function createControlsForTab(tab) {
+            let existingControls = document.getElementById(tab + '-controls');
+            if (existingControls) {
+                existingControls.classList.remove('hidden');
+                return;
+            }
+
+            const controlsContainer = document.createElement('div');
+            controlsContainer.className = 'controls';
+            controlsContainer.id = tab + '-controls';
+
+            if (tab === 'green-manufacturing') {
+                controlsContainer.innerHTML = createGreenManufacturingControls();
+            } else if (tab === 'ai-robotics') {
+                controlsContainer.innerHTML = createAIRoboticsControls();
+            } else if (tab === 'industrial-infrastructure') {
+                controlsContainer.innerHTML = createInfrastructureControls();
+            }
+
+            document.getElementById('smart-factory-controls').parentNode.insertBefore(controlsContainer, document.getElementById('smart-factory-controls').nextSibling);
+        }
+
+        function createGreenManufacturingControls() {
+            return `
+                <div class="control-group">
+                    <h3>🌱 Green Technology</h3>
+                    <select id="greenTechnology">
+                        <option value="solar panel manufacturing assembly">Solar Panel Assembly</option>
+                        <option value="wind turbine blade production">Wind Turbine Production</option>
+                        <option value="electric vehicle battery plant">EV Battery Manufacturing</option>
+                        <option value="green hydrogen electrolysis facility">Green Hydrogen Facility</option>
+                        <option value="biomaterial processing plant">Biomaterial Processing</option>
+                        <option value="recycling sorting facility">Recycling Facility</option>
+                        <option value="sustainable textile production">Sustainable Textile</option>
+                        <option value="carbon capture technology">Carbon Capture Tech</option>
+                    </select>
+                </div>
+                <div class="control-group">
+                    <h3>🎨 Eco Aesthetics</h3>
+                    <select id="ecoAesthetics">
+                        <option value="natural green sustainable lighting">Natural Green Lighting</option>
+                        <option value="clean white eco-friendly">Clean White Eco-friendly</option>
+                        <option value="earth tone biomaterial">Earth Tone Biomaterial</option>
+                        <option value="blue renewable energy">Blue Renewable Energy</option>
+                        <option value="organic wood steel combination">Organic Wood Steel</option>
+                        <option value="transparent glass sustainable">Transparent Glass Sustainable</option>
+                        <option value="living wall integrated">Living Wall Integrated</option>
+                        <option value="solar panel aesthetic">Solar Panel Aesthetic</option>
+                    </select>
+                </div>
+                <div class="control-group">
+                    <h3>♻️ Sustainability Focus</h3>
+                    <select id="sustainabilityFocus">
+                        <option value="circular economy production">Circular Economy Production</option>
+                        <option value="zero waste manufacturing">Zero Waste Manufacturing</option>
+                        <option value="renewable energy powered">Renewable Energy Powered</option>
+                        <option value="carbon neutral facility">Carbon Neutral Facility</option>
+                        <option value="biodegradable materials">Biodegradable Materials</option>
+                        <option value="energy efficient systems">Energy Efficient Systems</option>
+                        <option value="sustainable supply chain">Sustainable Supply Chain</option>
+                        <option value="green certification standards">Green Certification</option>
+                    </select>
+                </div>
+                <div class="control-group">
+                    <h3>🎯 Green Application</h3>
+                    <select id="greenApplication">
+                        <option value="ESG sustainability report">ESG Sustainability Report</option>
+                        <option value="green technology showcase">Green Tech Showcase</option>
+                        <option value="environmental compliance">Environmental Compliance</option>
+                        <option value="clean energy marketing">Clean Energy Marketing</option>
+                        <option value="sustainable innovation">Sustainable Innovation</option>
+                        <option value="carbon footprint reduction">Carbon Footprint Reduction</option>
+                        <option value="renewable energy presentation">Renewable Energy Presentation</option>
+                        <option value="eco-friendly manufacturing">Eco-friendly Manufacturing</option>
+                    </select>
+                </div>
+            `;
+        }
+
+        function createAIRoboticsControls() {
+            return `
+                <div class="control-group">
+                    <h3>⚙️ Robot Type</h3>
+                    <select id="robotType">
+                        <option value="collaborative robot arms working">Collaborative Robot Arms</option>
+                        <option value="autonomous mobile robots AGV">Autonomous Mobile Robots</option>
+                        <option value="precision welding robot">Precision Welding Robot</option>
+                        <option value="pick and place automation">Pick and Place Automation</option>
+                        <option value="AI vision inspection system">AI Vision Inspection</option>
+                        <option value="robotic painting system">Robotic Painting System</option>
+                        <option value="assembly line robots">Assembly Line Robots</option>
+                        <option value="packaging robots automated">Packaging Robots</option>
+                    </select>
+                </div>
+                <div class="control-group">
+                    <h3>🧠 AI Integration</h3>
+                    <select id="aiIntegration">
+                        <option value="machine learning optimization">Machine Learning Optimization</option>
+                        <option value="computer vision quality control">Computer Vision QC</option>
+                        <option value="predictive maintenance AI">Predictive Maintenance AI</option>
+                        <option value="neural network processing">Neural Network Processing</option>
+                        <option value="deep learning algorithms">Deep Learning Algorithms</option>
+                        <option value="real-time decision making">Real-time Decision Making</option>
+                        <option value="adaptive robot behavior">Adaptive Robot Behavior</option>
+                        <option value="intelligent automation">Intelligent Automation</option>
+                    </select>
+                </div>
+                <div class="control-group">
+                    <h3>👁️ Vision Systems</h3>
+                    <select id="visionSystems">
+                        <option value="3D scanner laser measurement">3D Scanner Laser</option>
+                        <option value="infrared thermal imaging">Infrared Thermal Imaging</option>
+                        <option value="high resolution cameras">High Resolution Cameras</option>
+                        <option value="multi-spectral analysis">Multi-spectral Analysis</option>
+                        <option value="barcode QR recognition">Barcode QR Recognition</option>
+                        <option value="defect detection system">Defect Detection System</option>
+                        <option value="dimensional measurement">Dimensional Measurement</option>
+                        <option value="surface inspection technology">Surface Inspection</option>
+                    </select>
+                </div>
+                <div class="control-group">
+                    <h3>🎯 Robotics Application</h3>
+                    <select id="roboticsApplication">
+                        <option value="automotive manufacturing">Automotive Manufacturing</option>
+                        <option value="electronics assembly">Electronics Assembly</option>
+                        <option value="pharmaceutical production">Pharmaceutical Production</option>
+                        <option value="food processing automation">Food Processing</option>
+                        <option value="aerospace precision">Aerospace Precision</option>
+                        <option value="medical device manufacturing">Medical Device Manufacturing</option>
+                        <option value="logistics warehouse">Logistics Warehouse</option>
+                        <option value="metal fabrication">Metal Fabrication</option>
+                    </select>
+                </div>
+            `;
+        }
+
+        function createInfrastructureControls() {
+            return `
+                <div class="control-group">
+                    <h3>🏗️ Infrastructure Type</h3>
+                    <select id="infrastructureType">
+                        <option value="modern factory building exterior">Modern Factory Building</option>
+                        <option value="industrial control room dashboard">Industrial Control Room</option>
+                        <option value="CNC machining center">CNC Machining Center</option>
+                        <option value="electrical control panels">Electrical Control Panels</option>
+                        <option value="pneumatic system network">Pneumatic System Network</option>
+                        <option value="conveyor belt systems">Conveyor Belt Systems</option>
+                        <option value="industrial ventilation">Industrial Ventilation</option>
+                        <option value="power distribution grid">Power Distribution Grid</option>
+                    </select>
+                </div>
+                <div class="control-group">
+                    <h3>🔧 Equipment Focus</h3>
+                    <select id="equipmentFocus">
+                        <option value="precision machining tools">Precision Machining Tools</option>
+                        <option value="hydraulic press systems">Hydraulic Press Systems</option>
+                        <option value="industrial compressors">Industrial Compressors</option>
+                        <option value="automated testing equipment">Automated Testing Equipment</option>
+                        <option value="material handling systems">Material Handling Systems</option>
+                        <option value="quality measurement tools">Quality Measurement Tools</option>
+                        <option value="cutting edge technology">Cutting Edge Technology</option>
+                        <option value="maintenance equipment">Maintenance Equipment</option>
+                    </select>
+                </div>
+                <div class="control-group">
+                    <h3>📡 Connectivity</h3>
+                    <select id="connectivity">
+                        <option value="5G industrial network">5G Industrial Network</option>
+                        <option value="IoT sensor integration">IoT Sensor Integration</option>
+                        <option value="edge computing systems">Edge Computing Systems</option>
+                        <option value="wireless communication">Wireless Communication</option>
+                        <option value="fiber optic infrastructure">Fiber Optic Infrastructure</option>
+                        <option value="cloud connectivity">Cloud Connectivity</option>
+                        <option value="real-time data streaming">Real-time Data Streaming</option>
+                        <option value="cybersecurity systems">Cybersecurity Systems</option>
+                    </select>
+                </div>
+                <div class="control-group">
+                    <h3>🎯 Infrastructure Application</h3>
+                    <select id="infrastructureApplication">
+                        <option value="facility planning design">Facility Planning Design</option>
+                        <option value="equipment catalog">Equipment Catalog</option>
+                        <option value="technical specifications">Technical Specifications</option>
+                        <option value="maintenance manual">Maintenance Manual</option>
+                        <option value="safety compliance">Safety Compliance</option>
+                        <option value="operational efficiency">Operational Efficiency</option>
+                        <option value="capacity planning">Capacity Planning</option>
+                        <option value="technology upgrade">Technology Upgrade</option>
+                    </select>
+                </div>
+            `;
+        }
+
+        // Generate standard prompt
+        function generateStandardPrompt() {
+            lastGenerationMode = 'standard';
+            updateButtonStates();
+            
+            let prompt = '';
+            
+            if (currentTab === 'smart-factory') {
+                const automationType = document.getElementById('automationType').value;
+                const aesthetics = document.getElementById('industrialAesthetics').value;
+                const layout = document.getElementById('factoryLayout').value;
+                const techElements = document.getElementById('techElements').value;
+                const effects = document.getElementById('visualEffects').value;
+                const use = document.getElementById('commercialUse').value;
+                
+                prompt = `Create a professional ${automationType} featuring ${aesthetics} design with ${layout} perspective. Include ${techElements} and ${effects} for enhanced visual impact. Ultra-high 4K resolution, expertly crafted for ${use}, following 2025 Adobe Stock smart factory trends including Industry 4.0 technology, IoT connectivity, Future Dust color palette, and modern industrial aesthetics. No human figures or living creatures, pure technological visualization focusing on automation and machinery.`;
+            }
+            else if (currentTab === 'green-manufacturing') {
+                const greenTech = document.getElementById('greenTechnology').value;
+                const ecoAesthetics = document.getElementById('ecoAesthetics').value;
+                const sustainability = document.getElementById('sustainabilityFocus').value;
+                const application = document.getElementById('greenApplication').value;
+                
+                prompt = `Design a cutting-edge ${greenTech} with ${ecoAesthetics} showcasing ${sustainability} principles. Ultra-high 4K resolution, professionally designed for ${application}, following 2025 Adobe Stock green manufacturing trends including renewable energy, sustainable production, circular economy, and eco-friendly industrial design. Focus on clean technology without any human representations, emphasizing environmental innovation and sustainability.`;
+            }
+            else if (currentTab === 'ai-robotics') {
+                const robotType = document.getElementById('robotType').value;
+                const aiIntegration = document.getElementById('aiIntegration').value;
+                const visionSystems = document.getElementById('visionSystems').value;
+                const application = document.getElementById('roboticsApplication').value;
+                
+                prompt = `Develop a sophisticated ${robotType} incorporating ${aiIntegration} with ${visionSystems} technology. Ultra-high 4K resolution, expertly created for ${application}, following 2025 Adobe Stock AI robotics trends including collaborative automation, machine learning integration, precision manufacturing, and intelligent systems. Pure robotic technology focus without human elements, showcasing advanced AI and automation capabilities.`;
+            }
+            else if (currentTab === 'industrial-infrastructure') {
+                const infrastructure = document.getElementById('infrastructureType').value;
+                const equipment = document.getElementById('equipmentFocus').value;
+                const connectivity = document.getElementById('connectivity').value;
+                const application = document.getElementById('infrastructureApplication').value;
+                
+                prompt = `Create a comprehensive ${infrastructure} featuring ${equipment} with ${connectivity} capabilities. Ultra-high 4K resolution, professionally designed for ${application}, following 2025 Adobe Stock industrial infrastructure trends including modern facilities, advanced machinery, smart connectivity, and industrial innovation. Emphasize pure technological infrastructure without human figures, focusing on equipment and systems.`;
+            }
+
+            document.getElementById('promptText').textContent = prompt;
+            document.getElementById('result').style.display = 'block';
+            document.getElementById('mjResult').style.display = 'none';
+            document.getElementById('result').scrollIntoView({ behavior: 'smooth' });
+        }
+
+        // Generate Midjourney prompt
+        function generateMidjourneyPrompt() {
+            lastGenerationMode = 'midjourney';
+            updateButtonStates();
+            
+            let basePrompt = '';
+            
+            if (currentTab === 'smart-factory') {
+                const automationType = document.getElementById('automationType').value;
+                const aesthetics = document.getElementById('industrialAesthetics').value;
+                const layout = document.getElementById('factoryLayout').value;
+                const techElements = document.getElementById('techElements').value;
+                
+                basePrompt = `${automationType}, ${aesthetics}, ${layout}, ${techElements}, professional smart factory, Adobe Stock style, 2025 industrial trends, Industry 4.0, no humans, technical precision, ultra detailed`;
+            }
+            else if (currentTab === 'green-manufacturing') {
+                const greenTech = document.getElementById('greenTechnology').value;
+                const ecoAesthetics = document.getElementById('ecoAesthetics').value;
+                const sustainability = document.getElementById('sustainabilityFocus').value;
+                
+                basePrompt = `${greenTech}, ${ecoAesthetics}, ${sustainability}, professional green manufacturing, Adobe Stock style, 2025 sustainability trends, renewable energy, no humans, eco-friendly, ultra detailed`;
+            }
+            else if (currentTab === 'ai-robotics') {
+                const robotType = document.getElementById('robotType').value;
+                const aiIntegration = document.getElementById('aiIntegration').value;
+                const visionSystems = document.getElementById('visionSystems').value;
+                
+                basePrompt = `${robotType}, ${aiIntegration}, ${visionSystems}, professional AI robotics, Adobe Stock style, 2025 automation trends, collaborative technology, no humans, robotic precision, ultra detailed`;
+            }
+            else if (currentTab === 'industrial-infrastructure') {
+                const infrastructure = document.getElementById('infrastructureType').value;
+                const equipment = document.getElementById('equipmentFocus').value;
+                const connectivity = document.getElementById('connectivity').value;
+                
+                basePrompt = `${infrastructure}, ${equipment}, ${connectivity}, professional industrial infrastructure, Adobe Stock style, 2025 technology trends, modern facility, no humans, technical excellence, ultra detailed`;
+            }
+
+            const aspectRatio = document.getElementById('aspectRatio').value;
+            const mjVersion = document.getElementById('mjVersion').value;
+            const styleMode = document.getElementById('styleMode').value;
+            const quality = document.getElementById('quality').value;
+            const stylize = document.getElementById('stylize').value;
+            const chaos = document.getElementById('chaos').value;
+
+            const mjPrompt = `/imagine prompt: ${basePrompt}`;
+            let parameters = ` --ar ${aspectRatio} --v ${mjVersion} --q ${quality} --s ${stylize} --c ${chaos}`;
+            
+            if (styleMode) {
+                parameters += ` --style ${styleMode}`;
+            }
+
+            const fullMjCommand = mjPrompt + parameters;
+
+            document.getElementById('mjPromptText').textContent = fullMjCommand;
+            document.getElementById('mjResult').style.display = 'block';
+            document.getElementById('result').style.display = 'none';
+            document.getElementById('mjResult').scrollIntoView({ behavior: 'smooth' });
+        }
+
+        function updateButtonStates() {
+            const standardBtn = document.querySelector('button[onclick="generateStandardPrompt()"]');
+            const midjourneyBtn = document.querySelector('button[onclick="generateMidjourneyPrompt()"]');
+            const randomBtn = document.querySelector('button[onclick="randomizeCurrentTab()"]');
+            
+            standardBtn.style.opacity = lastGenerationMode === 'standard' ? '1' : '0.7';
+            midjourneyBtn.style.opacity = lastGenerationMode === 'midjourney' ? '1' : '0.7';
+            
+            randomBtn.innerHTML = lastGenerationMode === 'standard' ? '🎲 Random Standard' : '🎲 Random Midjourney';
+        }
+
+        function randomizeCurrentTab() {
+            const controls = document.getElementById(currentTab + '-controls');
+            const selects = controls.querySelectorAll('select');
+            
+            selects.forEach(select => {
+                const options = select.options;
+                const randomIndex = Math.floor(Math.random() * options.length);
+                select.selectedIndex = randomIndex;
+            });
+            
+            if (lastGenerationMode === 'standard') {
+                generateStandardPrompt();
+            } else {
+                generateMidjourneyPrompt();
+            }
+        }
+
+        function resetAll() {
+            document.querySelectorAll('select').forEach(select => {
+                select.selectedIndex = 0;
+            });
+            document.getElementById('result').style.display = 'none';
+            document.getElementById('mjResult').style.display = 'none';
+            lastGenerationMode = 'midjourney';
+            updateButtonStates();
+        }
+
+        function copyPrompt() {
+            const promptText = document.getElementById('promptText').textContent;
+            navigator.clipboard.writeText(promptText).then(() => {
+                const button = document.querySelector('#result .copy-btn');
+                const originalText = button.textContent;
+                button.textContent = '✅ Copied!';
+                button.style.background = '#28a745';
+                setTimeout(() => {
+                    button.textContent = originalText;
+                    button.style.background = 'linear-gradient(135deg, #17a2b8 0%, #138496 100%)';
+                }, 2000);
+            });
+        }
+
+        function copyMjPrompt() {
+            const mjPromptText = document.getElementById('mjPromptText').textContent;
+            navigator.clipboard.writeText(mjPromptText).then(() => {
+                const button = document.querySelector('#mjResult .copy-btn');
+                const originalText = button.textContent;
+                button.textContent = '✅ Copied to Discord!';
+                button.style.background = '#28a745';
+                button.style.color = 'white';
+                setTimeout(() => {
+                    button.textContent = originalText;
+                    button.style.background = '#fff';
+                    button.style.color = '#7289da';
+                }, 2000);
+            });
+        }
+
+        // Preset functions
+        function setSmartFactoryPreset(type) {
+            document.getElementById('mjVersion').value = '7';
+            document.getElementById('quality').value = '2';
+            document.getElementById('styleMode').value = 'raw';
+            document.getElementById('stylize').value = '100';
+            document.getElementById('chaos').value = '0';
+            
+            switch(type) {
+                case 'robot-assembly':
+                    document.getElementById('automationType').value = 'robotic assembly line with precision arms';
+                    document.getElementById('industrialAesthetics').value = 'Future Dust palette dark blue metallic chrome';
+                    document.getElementById('factoryLayout').value = 'wide angle production floor';
+                    document.getElementById('techElements').value = 'glowing status indicators';
+                    document.getElementById('aspectRatio').value = '16:9';
+                    break;
+                case 'iot-monitoring':
+                    document.getElementById('automationType').value = 'smart manufacturing cell';
+                    document.getElementById('techElements').value = 'data visualization displays';
+                    document.getElementById('aspectRatio').value = '16:9';
+                    break;
+                case 'digital-twin':
+                    document.getElementById('industrialAesthetics').value = 'holographic tech interface';
+                    document.getElementById('factoryLayout').value = 'aerial top down factory view';
+                    document.getElementById('aspectRatio').value = '1:1';
+                    break;
+                case 'automated-warehouse':
+                    document.getElementById('automationType').value = 'automated guided vehicle system';
+                    document.getElementById('factoryLayout').value = 'linear production sequence';
+                    document.getElementById('aspectRatio').value = '21:9';
+                    break;
+                case 'quality-control':
+                    document.getElementById('automationType').value = 'pick and place robot system';
+                    document.getElementById('techElements').value = 'sensor arrays monitoring';
+                    document.getElementById('aspectRatio').value = '4:3';
+                    break;
+                case 'predictive-maintenance':
+                    document.getElementById('techElements').value = 'digital control screens';
+                    document.getElementById('visualEffects').value = 'reflection metallic surfaces';
+                    document.getElementById('aspectRatio').value = '16:9';
+                    break;
+            }
+            generateMidjourneyPrompt();
+        }
+
+        function setGreenPreset(type) {
+            createControlsForTab('green-manufacturing');
+            document.getElementById('mjVersion').value = '7';
+            
+            switch(type) {
+                case 'solar-factory':
+                    document.getElementById('greenTechnology').value = 'solar panel manufacturing assembly';
+                    document.getElementById('ecoAesthetics').value = 'blue renewable energy';
+                    document.getElementById('sustainabilityFocus').value = 'renewable energy powered';
+                    document.getElementById('aspectRatio').value = '16:9';
+                    break;
+                case 'wind-turbine':
+                    document.getElementById('greenTechnology').value = 'wind turbine blade production';
+                    document.getElementById('sustainabilityFocus').value = 'carbon neutral facility';
+                    document.getElementById('aspectRatio').value = '4:3';
+                    break;
+                case 'ev-battery':
+                    document.getElementById('greenTechnology').value = 'electric vehicle battery plant';
+                    document.getElementById('ecoAesthetics').value = 'clean white eco-friendly';
+                    document.getElementById('aspectRatio').value = '16:9';
+                    break;
+            }
+            generateMidjourneyPrompt();
+        }
+
+        function setAIRoboticsPreset(type) {
+            createControlsForTab('ai-robotics');
+            document.getElementById('mjVersion').value = '7';
+            
+            switch(type) {
+                case 'collaborative-robots':
+                    document.getElementById('robotType').value = 'collaborative robot arms working';
+                    document.getElementById('aiIntegration').value = 'adaptive robot behavior';
+                    document.getElementById('aspectRatio').value = '16:9';
+                    break;
+                case 'ai-vision-system':
+                    document.getElementById('robotType').value = 'AI vision inspection system';
+                    document.getElementById('visionSystems').value = 'defect detection system';
+                    document.getElementById('aspectRatio').value = '4:3';
+                    break;
+            }
+            generateMidjourneyPrompt();
+        }
+
+        function setInfrastructurePreset(type) {
+            createControlsForTab('industrial-infrastructure');
+            document.getElementById('mjVersion').value = '7';
+            
+            switch(type) {
+                case 'modern-factory':
+                    document.getElementById('infrastructureType').value = 'modern factory building exterior';
+                    document.getElementById('connectivity').value = '5G industrial network';
+                    document.getElementById('aspectRatio').value = '16:9';
+                    break;
+                case 'cnc-machining':
+                    document.getElementById('infrastructureType').value = 'CNC machining center';
+                    document.getElementById('equipmentFocus').value = 'precision machining tools';
+                    document.getElementById('aspectRatio').value = '4:3';
+                    break;
+            }
+            generateMidjourneyPrompt();
+        }
+
+        function trackDonation() {
+            console.log('Industrial Trends tool donation clicked - Thank you for supporting industrial research!');
+        }
+
+        // Initialize
+        window.onload = function() {
+            setSmartFactoryPreset('robot-assembly');
+            updateButtonStates();
+        }
+    </script>
+</body>
+</html>
